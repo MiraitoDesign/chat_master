@@ -1,0 +1,41 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml:1:1-7:12
+INJECTED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml:1:1-7:12
+INJECTED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml:1:1-7:12
+INJECTED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml:1:1-7:12
+INJECTED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml:1:1-7:12
+INJECTED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml:1:1-7:12
+INJECTED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml:1:1-7:12
+	package
+		ADDED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml:1:70-96
+		INJECTED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml
+		INJECTED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml
+		ADDED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml:1:1-7:12
+		INJECTED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml
+		ADDED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml:1:1-7:12
+		INJECTED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml:1:11-69
+application
+ADDED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml:3:5-5:19
+	android:allowBackup
+		ADDED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml:3:18-44
+uses-sdk
+INJECTED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml
+INJECTED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml
+INJECTED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml
+INJECTED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml
+		ADDED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml
+		INJECTED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml
+		ADDED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml
+		INJECTED from /Users/yusaku_inamura/work/cocos2d-x/cocos2d-x-3.16/chat_master/cocos2d/cocos/platform/android/libcocos2dx/AndroidManifest.xml
