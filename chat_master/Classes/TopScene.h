@@ -1,9 +1,10 @@
-#ifndef __HELLOWORLD_SCENE_H__
-#define __HELLOWORLD_SCENE_H__
+#ifndef __TOP_SCENE_H__
+#define __TOP_SCENE_H__
 
 #include "cocos2d.h"
+#include "ui/CocosGUI.h"
 
-class HelloWorld : public cocos2d::Scene
+class Top : public cocos2d::Scene
 {
 public:
     static cocos2d::Scene* createScene();
@@ -14,7 +15,7 @@ public:
     void menuCloseCallback(cocos2d::Ref* pSender);
     
     // implement the "static create()" method manually
-    CREATE_FUNC(HelloWorld);
+    CREATE_FUNC(Top);
 };
 
-#endif // __HELLOWORLD_SCENE_H__
+#endif // __TOP_SCENE_H__

@@ -1,22 +1,23 @@
-#include "HelloWorldScene.h"
+#include "TopScene.h"
+#include "ChatScene.h"
 #include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
-Scene* HelloWorld::createScene()
+Scene* Top::createScene()
 {
-    return HelloWorld::create();
+    return Top::create();
 }
 
 // Print useful error message instead of segfaulting when files are not there.
 static void problemLoading(const char* filename)
 {
     printf("Error while loading: %s\n", filename);
-    printf("Depending on how you compiled you might have to add 'Resources/' in front of filenames in HelloWorldScene.cpp\n");
+    printf("Depending on how you compiled you might have to add 'Resources/' in front of filenames in TopScene.cpp\n");
 }
 
 // on "init" you need to initialize your instance
-bool HelloWorld::init()
+bool Top::init()
 {
     //////////////////////////////
     // 1. super init first
@@ -36,7 +37,7 @@ bool HelloWorld::init()
     auto closeItem = MenuItemImage::create(
                                            "CloseNormal.png",
                                            "CloseSelected.png",
-                                           CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
+                                           CC_CALLBACK_1(Top::menuCloseCallback, this));
 
     if (closeItem == nullptr ||
         closeItem->getContentSize().width <= 0 ||
@@ -62,7 +63,7 @@ bool HelloWorld::init()
     // add a label shows "Hello World"
     // create and initialize a label
 
-    auto label = Label::createWithTTF("Hello World", "fonts/Marker Felt.ttf", 24);
+    auto label = Label::createWithTTF("ChatMaster Top", "fonts/Marker Felt.ttf", 24);
     if (label == nullptr)
     {
         problemLoading("'fonts/Marker Felt.ttf'");
@@ -77,25 +78,34 @@ bool HelloWorld::init()
         this->addChild(label, 1);
     }
 
-    // add "HelloWorld" splash screen"
-    auto sprite = Sprite::create("HelloWorld.png");
-    if (sprite == nullptr)
-    {
-        problemLoading("'HelloWorld.png'");
-    }
-    else
-    {
-        // position the sprite on the center of the screen
-        sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
+    // ボタン追加
+    ui::Button * button = ui::Button::create();
+    button->setTouchEnabled(true);
+    button->loadTextures("button.png", "button.png","");
+    button->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
 
-        // add the sprite as a child to this layer
-        this->addChild(sprite, 0);
-    }
+    float x = visibleSize.width /2;
+    float y = visibleSize.height /2;
+
+    button->setPosition(Vec2(x, y));
+
+    button->addTouchEventListener([this](Ref * sender, ui::Widget::TouchEventType type) {
+        if (type == ui::Widget::TouchEventType::ENDED) {
+            auto chatScene = Chat::create();
+            TransitionFade* fade = TransitionFade::create(0.5f, chatScene, Color3B::WHITE);
+            Director::getInstance()->replaceScene(chatScene);
+        }
+    });
+
+    this->addChild(button);
+
+
+
     return true;
 }
 
 
-void HelloWorld::menuCloseCallback(Ref* pSender)
+void Top::menuCloseCallback(Ref* pSender)
 {
     //Close the cocos2d-x game scene and quit the application
     Director::getInstance()->end();
@@ -108,6 +118,5 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
 
     //EventCustom customEndEvent("game_scene_close_event");
     //_eventDispatcher->dispatchEvent(&customEndEvent);
-
-
 }
+
