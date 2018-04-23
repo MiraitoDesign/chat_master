@@ -30,34 +30,6 @@ bool Top::init()
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
     /////////////////////////////
-    // 2. add a menu item with "X" image, which is clicked to quit the program
-    //    you may modify it.
-
-    // add a "close" icon to exit the progress. it's an autorelease object
-    auto closeItem = MenuItemImage::create(
-                                           "CloseNormal.png",
-                                           "CloseSelected.png",
-                                           CC_CALLBACK_1(Top::menuCloseCallback, this));
-
-    if (closeItem == nullptr ||
-        closeItem->getContentSize().width <= 0 ||
-        closeItem->getContentSize().height <= 0)
-    {
-        problemLoading("'CloseNormal.png' and 'CloseSelected.png'");
-    }
-    else
-    {
-        float x = origin.x + visibleSize.width - closeItem->getContentSize().width/2;
-        float y = origin.y + closeItem->getContentSize().height/2;
-        closeItem->setPosition(Vec2(x,y));
-    }
-
-    // create menu, it's an autorelease object
-    auto menu = Menu::create(closeItem, NULL);
-    menu->setPosition(Vec2::ZERO);
-    this->addChild(menu, 1);
-
-    /////////////////////////////
     // 3. add your codes below...
 
     // add a label shows "Hello World"
@@ -78,10 +50,27 @@ bool Top::init()
         this->addChild(label, 1);
     }
 
+    // テキストボックス追加
+    ui::EditBox* nameText = ui::EditBox::create(Size(visibleSize.width - 10, 30), "textbox.png");
+    nameText->setPosition(Vec2(origin.x+visibleSize.width/2, visibleSize.height/2 + 50));
+    nameText->setFont("fonts/mgenplus-1mn-medium.ttf", 12);
+    nameText->setFontColor(Color3B::BLACK);
+    nameText->setMaxLength(20);
+    nameText->setInputMode(ui::EditBox::InputMode::ANY);
+    nameText->setDelegate(this);
+    this->addChild(nameText);
+
+    UserDefault *userDef = UserDefault::getInstance();
+    auto name = userDef->getStringForKey("name");
+    nameText->setText(name.c_str());
+
     // ボタン追加
     ui::Button * button = ui::Button::create();
     button->setTouchEnabled(true);
     button->loadTextures("button.png", "button.png","");
+    button->setTitleText("決定");
+    button->setTitleFontName("fonts/mgenplus-1mn-medium.ttf");
+    button->setTitleColor(Color3B::BLACK);
     button->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
 
     float x = visibleSize.width /2;
@@ -89,8 +78,11 @@ bool Top::init()
 
     button->setPosition(Vec2(x, y));
 
-    button->addTouchEventListener([this](Ref * sender, ui::Widget::TouchEventType type) {
+    button->addTouchEventListener([this, nameText](Ref * sender, ui::Widget::TouchEventType type) {
         if (type == ui::Widget::TouchEventType::ENDED) {
+            UserDefault *userDef = UserDefault::getInstance();
+            userDef->setStringForKey("name", nameText->getText());
+
             auto chatScene = Chat::create();
             TransitionFade* fade = TransitionFade::create(0.5f, chatScene, Color3B::WHITE);
             Director::getInstance()->replaceScene(chatScene);
@@ -99,24 +91,18 @@ bool Top::init()
 
     this->addChild(button);
 
-
+//    auto buttonLayer = ButtonLayer::create();
+//    this->addChild(buttonLayer);
 
     return true;
 }
 
-
-void Top::menuCloseCallback(Ref* pSender)
-{
-    //Close the cocos2d-x game scene and quit the application
-    Director::getInstance()->end();
-
-    #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    exit(0);
-#endif
-
-    /*To navigate back to native iOS screen(if present) without quitting the application  ,do not use Director::getInstance()->end() and exit(0) as given above,instead trigger a custom event created in RootViewController.mm as below*/
-
-    //EventCustom customEndEvent("game_scene_close_event");
-    //_eventDispatcher->dispatchEvent(&customEndEvent);
+void Top::editBoxEditingDidBegin(EditBox *editBox) {
+}
+void Top::editBoxEditingDidEnd(EditBox *editBox) {
+}
+void Top::editBoxTextChanged(EditBox *editBox, const std::string& text) {
+}
+void Top::editBoxReturn(EditBox *editBox) {
 }
 
