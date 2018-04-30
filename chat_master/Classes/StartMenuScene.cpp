@@ -4,6 +4,7 @@
 
 #include "StartMenuScene.h"
 #include "HelloWorldScene.h"
+#include "ChatScene.h"
 
 USING_NS_CC;
 
@@ -37,27 +38,31 @@ bool StartMenu::init()
 void StartMenu::setContents()
 {
     auto visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    auto origin = Director::getInstance()->getVisibleOrigin();
 
+    // タイトル
+    Label* title = Label::createWithSystemFont("ChatMaster!", "fonts/arial.ttf", 36);
+    float tX = origin.x + visibleSize.width / 2;
+    float tY = origin.y + visibleSize.height - 10;
+    title->setPosition(Vec2(tX, tY));
+    this->addChild(title);
+
+    // ボタン
     auto startButton = MenuItemImage::create(
             "aqua_button.png",
             "CloseSelected.png",
             CC_CALLBACK_1(StartMenu::pushStartButton, this));
 
-    float x = visibleSize.width / 2;
-    float y = visibleSize.height;
-    startButton->setPosition(Vec2(x, y));
+    startButton->setPosition(Vec2(tX, tY - 60));
 
     auto menu = Menu::create(startButton, NULL);
-    menu ->setPosition(Point::ZERO);
+    menu->setPosition(origin);
     this->addChild(menu);
-
-    this->addChild(menu, 1);
 }
 
 void StartMenu::pushStartButton(Ref *pSender)
 {
-    auto helloWorld = HelloWorld::create();
-    Director::getInstance()->replaceScene(helloWorld);
+    auto chatScene = ChatScene::create();
+    Director::getInstance()->replaceScene(chatScene);
 }
 
